@@ -1,8 +1,7 @@
 require 'genetic_algorithms'
 
 class Knapsack
-  SIZE = 24
-  BEST_SCORE = 1000
+  CAPACITY, BEST_SCORE = 24, 1000
 
   def initialize chromosome
     @contents = decode chromosome
@@ -13,7 +12,7 @@ class Knapsack
       accum += item.space_needed
     end
     
-    (space_used.to_f / SIZE * 1000).round
+    (space_used.to_f / CAPACITY * 1000).round
   end
 
   private
@@ -30,8 +29,8 @@ class Knapsack
 end
 
 class Item
-  def self.create_items hash
-    hash.inject(Array.new) do |items, (name, space_needed)|
+  def self.create_items item_hash
+    item_hash.inject(Array.new) do |items, (name, space_needed)|
       items << Item.new(name, space_needed)
     end
   end
