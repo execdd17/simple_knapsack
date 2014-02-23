@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem "genetic_algorithms"
+gem 'genetic_algorithms', '~> 0.0'
